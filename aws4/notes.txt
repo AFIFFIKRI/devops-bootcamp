@@ -1,0 +1,12 @@
+[
+    [
+        "nat-00d4724b0f04c43cc",
+        "available"
+    ]
+]
+[
+    "18.141.63.131"
+]
+[
+    "466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri"
+]
