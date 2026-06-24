@@ -1,0 +1,12 @@
+# Cloudflare Setup Notes
+ 
+## Nameserver Cloudflare
+- peaches.ns.cloudflare.com
+- phil.ns.cloudflare.com
+ 
+## Portfolio Awam (GitHub Pages -> Cloudflare Pages)
+- pages.dev URL : https://afiffikri-github-io.pages.dev/
+- Custom domain : https://www.servobitservices.com/
+ 
+## Private Site (Custom Subdomain)
+- Private URL   : https://public-site.servobitservices.com/
