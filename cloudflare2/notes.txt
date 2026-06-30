@@ -1,0 +1,11 @@
+# create DNS only & PROXIED with aws and cloudflare
+
+# enable flexible SSL
+
+# create private service using cloudflare tunnel
+
+# create private service using script
+## resolve blackhole issue by replace nat gateway to new one. old one need to be deleted
+## tunnel healthy
+
+# Delete cost usage service: nat gateway in vpc, elastic ip in ec2
