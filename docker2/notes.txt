@@ -1,0 +1,7 @@
+# ECR repo view push commands
+
+## aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com
+## docker build -t devops-bootcamp/fikri .
+## docker tag devops-bootcamp/fikri:latest 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri:latest
+## docker push 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri:latest
+
