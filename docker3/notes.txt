@@ -1,0 +1,15 @@
+# ECR Image
+
+## 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri:latest
+## 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri@sha256:a11b7a5224df2641e17cc08d0290f53fff467b60a10c10001cae42bb8fd51239
+## 466089068491.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/fikri@sha256:f7fdf7898237fc49e1a5f4e6d2ba2692e02d82d5b862cd1f04259cda79d7b468
+
+
+NETWORK ID     NAME      DRIVER    SCOPE
+db74da8412b0   arena     bridge    local
+3a6c6a203de8   bridge    bridge    local
+01a5eb4ec140   host      host      local
+a15160f9ad95   none      null      local
+
+DRIVER    VOLUME NAME
+local     me
