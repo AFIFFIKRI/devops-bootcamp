@@ -1,0 +1,35 @@
+services:
+  profile:
+    image: redis
+    volumes:
+      - me:/data
+
+  server:
+    image: ghcr.io/infratify/arena-server
+
+  avatar:
+    image: ghcr.io/infratify/arena-avatar
+    ports:
+      - "8081:8080"
+    environment:
+      NAME: Cap Ayam
+      COLOR: yellow
+      SERVER: 13.213.70.70
+    depends_on:
+      - profile
+      - server
+
+  avatar2:
+    image: ghcr.io/infratify/arena-avatar
+    ports:
+      - "8082:8080"
+    environment:
+      NAME: FIKRI
+      COLOR: orange
+      SERVER: 13.213.70.70
+    depends_on:
+      - profile
+      - server
+
+volumes:
+  me:
