@@ -24,3 +24,4 @@ resource "aws_instance" "my_server_1" {
     Name = "tf-server-1"
   }
 }
+
