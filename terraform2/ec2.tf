@@ -12,7 +12,7 @@ data "aws_iam_instance_profile" "my_ssm_profile" {
   name = "EC2-SSM-Role"
 }
 
-# < bersambung
+# PUBLIC INSTANCE
 resource "aws_instance" "my_server_1" {
   ami                    = data.aws_ami.my_ami.id
   instance_type          = "t3.micro"
@@ -24,4 +24,28 @@ resource "aws_instance" "my_server_1" {
     Name = "tf-server-1"
   }
 }
+resource "aws_instance" "my_server_2" {
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = aws_subnet.my_subnet.id
+  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  iam_instance_profile   = data.aws_iam_instance_profile.my_ssm_profile.name
 
+  tags = {
+    Name = "tf-server-2"
+  }
+}
+
+# PRIVATE INSTANCE
+resource "aws_instance" "my_private_server_1" {
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = aws_subnet.my_private_subnet.id
+  # Private tak perlu security group
+  // vpc_security_group_ids = [aws_security_group.my_sg.id]
+  iam_instance_profile   = data.aws_iam_instance_profile.my_ssm_profile.name
+
+  tags = {
+    Name = "tf-private-server-1"
+  }
+}
