@@ -1,0 +1,46 @@
+data "aws_ami" "my_ami" {
+  most_recent = true
+  owners      = ["099720109477"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+  }
+}
+
+data "aws_iam_instance_profile" "my_ssm_profile" {
+  name = "EC2-SSM-Role"
+}
+
+data "aws_ssm_parameter" "token" {
+  name = "/devops-bootcamp-2026/tunnel-token"
+}
+
+module "node1" {
+  source                 = "terraform-aws-modules/ec2-instance/aws"
+  version                = "~> 6.0"
+  name                   = "node1"
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = module.my_vpc.public_subnets[0]
+  create_security_group  = false
+  vpc_security_group_ids = [module.my_sg.id]
+  key_name               = "afiffikri-key"
+  tags                   = { Name = "node1" }
+}
+
+module "node2" {
+  source                 = "terraform-aws-modules/ec2-instance/aws"
+  version                = "~> 6.0"
+  name                   = "node2"
+  ami                    = data.aws_ami.my_ami.id
+  instance_type          = "t3.micro"
+  subnet_id              = module.my_vpc.public_subnets[0]
+  create_security_group  = false
+  vpc_security_group_ids = [module.my_sg.id]
+  key_name               = "afiffikri-key"
+  tags                   = { Name = "node2" }
+}
+
+# token cloudflare terraform3
+# sudo cloudflared service install eyJhIjoiMjM0NzI5Y2U5YTU1NTFkMTIzNjlmYWE0MTg4Mzk3NDciLCJ0IjoiY2YwZTZjYmEtNzFmYy00OTk0LWEwMjktYjMyY2U2MDg5NTgxIiwicyI6Ik56VXpNbVl5TTJNdE5UbGxOaTAwWVdNeExUaGlaR1V0WW1Wa05qZGlNVFE0TkRVMyJ9
