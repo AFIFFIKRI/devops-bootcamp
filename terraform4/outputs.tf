@@ -1,0 +1,9 @@
+output "rackula_url" {
+  description = "URL untuk mengakses Rackula"
+  value       = "http://${module.my_server.public_ip}:8080"
+}
+
+output "ssm_command" {
+  description = "SSM command untuk connect ke instance"
+  value       = "aws ssm start-session --target ${module.my_server.id}"
+}
